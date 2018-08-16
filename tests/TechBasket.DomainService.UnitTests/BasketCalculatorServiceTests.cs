@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Moq;
+using TechBasket.DomainService.Infrastructure;
 using TechBasket.DomainService.Models;
 using Xunit;
 
@@ -6,7 +8,23 @@ namespace TechBasket.DomainService.UnitTests
 {
     public class BasketCalculatorServiceTests
     {
-        private readonly BasketCalculatorService _calculatorService = new BasketCalculatorService();
+        private readonly BasketCalculatorService _calculatorService;
+
+        public BasketCalculatorServiceTests()
+        {
+            var productRepositoryMock = new Mock<IProductRepository>();
+
+            productRepositoryMock
+                .Setup(r => r.GetProductsPrices())
+                .Returns(new Dictionary<ProductIdentifier, decimal>
+                {
+                    {ProductIdentifier.Milk, 1.15m},
+                    {ProductIdentifier.Bread, 1m},
+                    {ProductIdentifier.Butter, 0.8m}
+                });
+
+            _calculatorService = new BasketCalculatorService(productRepositoryMock.Object);
+        }
 
         [Theory]
         [MemberData(nameof(GetTotalTestsData))]

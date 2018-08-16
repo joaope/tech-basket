@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using TechBasket.DomainService.Infrastructure;
 using TechBasket.DomainService.Logic;
 using TechBasket.DomainService.Models;
 
@@ -7,12 +7,12 @@ namespace TechBasket.DomainService
 {
     public class BasketCalculatorService
     {
-        private static readonly IDictionary<ProductIdentifier, decimal> ProductPrices = new Dictionary<ProductIdentifier, decimal>
+        private readonly IProductRepository _productRepository;
+
+        public BasketCalculatorService(IProductRepository productRepository)
         {
-            { ProductIdentifier.Milk, 1.15m },
-            { ProductIdentifier.Bread, 1m },
-            { ProductIdentifier.Butter, 0.8m }
-        };
+            _productRepository = productRepository;
+        }
 
         public decimal GetTotal(Basket basket)
         {
@@ -22,9 +22,11 @@ namespace TechBasket.DomainService
                 return 0;
             }
 
+            var currentProductPrices = _productRepository.GetProductsPrices();
+
             var productsWithPrices = basket
                 .Products
-                .Select(p => new PricedProduct(p, ProductPrices[p]))
+                .Select(p => new PricedProduct(p, currentProductPrices[p]))
                 .ToArray();
 
             new TwoButtersGetBreadHalfPriceOffer().Apply(productsWithPrices);
