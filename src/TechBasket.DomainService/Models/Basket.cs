@@ -5,7 +5,7 @@ namespace TechBasket.DomainService.Models
 {
     public class Basket
     {
-        private ProductIdentifier[] Products { get; }
+        public ProductIdentifier[] Products { get; }
 
         public Basket(IEnumerable<ProductIdentifier> products)
         {
