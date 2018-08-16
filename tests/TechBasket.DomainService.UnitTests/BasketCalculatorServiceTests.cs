@@ -61,6 +61,37 @@ namespace TechBasket.DomainService.UnitTests
                     ProductIdentifier.Bread
                 })
             };
+
+            yield return new object[]
+            {
+                3.45m,
+                new Basket(new []
+                {
+                    ProductIdentifier.Milk,
+                    ProductIdentifier.Milk,
+                    ProductIdentifier.Milk,
+                    ProductIdentifier.Milk
+                })
+            };
+
+            yield return new object[]
+            {
+                9m,
+                new Basket(new []
+                {
+                    ProductIdentifier.Butter,
+                    ProductIdentifier.Butter,
+                    ProductIdentifier.Bread,
+                    ProductIdentifier.Milk,
+                    ProductIdentifier.Milk,
+                    ProductIdentifier.Milk,
+                    ProductIdentifier.Milk,
+                    ProductIdentifier.Milk,
+                    ProductIdentifier.Milk,
+                    ProductIdentifier.Milk,
+                    ProductIdentifier.Milk
+                })
+            };
         }
     }
 }

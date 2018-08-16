@@ -27,6 +27,7 @@ namespace TechBasket.DomainService
                 .ToArray();
 
             new TwoButtersGetBreadHalfPriceOffer().Apply(productsWithPrices);
+            new ThreeMilkFourthFreeOffer().Apply(productsWithPrices);
 
             return productsWithPrices.Sum(p => p.DiscountedPrice);
         }
