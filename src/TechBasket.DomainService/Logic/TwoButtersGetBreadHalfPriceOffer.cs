@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using TechBasket.DomainService.Models;
 
-namespace TechBasket.DomainService
+namespace TechBasket.DomainService.Logic
 {
     public sealed class TwoButtersGetBreadHalfPriceOffer : IOffer
     {

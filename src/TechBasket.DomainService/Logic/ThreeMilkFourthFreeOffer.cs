@@ -1,13 +1,8 @@
 ﻿using System.Linq;
 using TechBasket.DomainService.Models;
 
-namespace TechBasket.DomainService
+namespace TechBasket.DomainService.Logic
 {
-    public interface IOffer
-    {
-        void Apply(PricedProduct[] products);
-    }
-
     public sealed class ThreeMilkFourthFreeOffer : IOffer
     {
         public void Apply(PricedProduct[] products)

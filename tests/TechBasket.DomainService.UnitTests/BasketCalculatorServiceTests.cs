@@ -27,6 +27,12 @@ namespace TechBasket.DomainService.UnitTests
 
             yield return new object[]
             {
+                0,
+                new Basket(null)
+            };
+
+            yield return new object[]
+            {
                 2.95m,
                 new Basket(new []
                 {

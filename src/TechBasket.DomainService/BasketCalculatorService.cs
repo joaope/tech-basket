@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TechBasket.DomainService.Logic;
 using TechBasket.DomainService.Models;
 
 namespace TechBasket.DomainService

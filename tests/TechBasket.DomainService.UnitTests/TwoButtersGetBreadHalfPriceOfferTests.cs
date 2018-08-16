@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using TechBasket.DomainService.Logic;
 using TechBasket.DomainService.Models;
 using Xunit;
 
