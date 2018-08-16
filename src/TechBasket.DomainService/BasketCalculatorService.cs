@@ -21,7 +21,14 @@ namespace TechBasket.DomainService
                 return 0;
             }
 
-            return basket.Products.Sum(p => ProductPrices[p]);
+            var productsWithPrices = basket
+                .Products
+                .Select(p => new PricedProduct(p, ProductPrices[p]))
+                .ToArray();
+
+            new TwoButtersGetBreadHalfPriceOffer().Apply(productsWithPrices);
+
+            return productsWithPrices.Sum(p => p.DiscountedPrice);
         }
     }
 }
