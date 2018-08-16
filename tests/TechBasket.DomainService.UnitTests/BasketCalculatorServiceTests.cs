@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TechBasket.DomainService.Models;
 using Xunit;
 
@@ -7,29 +8,33 @@ namespace TechBasket.DomainService.UnitTests
     {
         private readonly BasketCalculatorService _calculatorService = new BasketCalculatorService();
 
-        [Fact]
-        public void GetTotal_NoProductNoOffers_TotalZero()
+        [Theory]
+        [MemberData(nameof(GetTotalTestsData))]
+        public void GetTotal_TestsDifferentBasketsAndOffers_ReturnsTotalWithDiscounts(decimal expectedTotal, Basket basket)
         {
-            var basket = new Basket(new ProductIdentifier[0]);
-
             var total = _calculatorService.GetTotal(basket);
 
-            Assert.Equal(0, total);
+            Assert.Equal(expectedTotal, total);
         }
 
-        [Fact]
-        public void GetTotal_AllProducts_NoOffers()
+        public static IEnumerable<object[]> GetTotalTestsData()
         {
-            var basket = new Basket(new []
+            yield return new object[]
             {
-                ProductIdentifier.Bread,
-                ProductIdentifier.Butter,
-                ProductIdentifier.Milk
-            });
+                0,
+                new Basket(new ProductIdentifier[0])
+            };
 
-            var total = _calculatorService.GetTotal(basket);
-
-            Assert.Equal(2.95m, total);
+            yield return new object[]
+            {
+                2.95m,
+                new Basket(new []
+                {
+                    ProductIdentifier.Bread,
+                    ProductIdentifier.Butter,
+                    ProductIdentifier.Milk
+                })
+            };
         }
     }
 }
