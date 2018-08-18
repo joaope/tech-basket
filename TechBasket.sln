@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechBasket.DomainService.Un
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechBasket.Web.UnitTests", "tests\TechBasket.Web.UnitTests\TechBasket.Web.UnitTests.csproj", "{F4D14FB4-66FB-4A50-BA4B-F297D6DC4499}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechBasket.Web", "src\TechBasket.Web\TechBasket.Web.csproj", "{240521E8-8840-4259-81B6-AF041158EB32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,18 @@ Global
 		{F4D14FB4-66FB-4A50-BA4B-F297D6DC4499}.Release|x64.Build.0 = Release|Any CPU
 		{F4D14FB4-66FB-4A50-BA4B-F297D6DC4499}.Release|x86.ActiveCfg = Release|Any CPU
 		{F4D14FB4-66FB-4A50-BA4B-F297D6DC4499}.Release|x86.Build.0 = Release|Any CPU
+		{240521E8-8840-4259-81B6-AF041158EB32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240521E8-8840-4259-81B6-AF041158EB32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240521E8-8840-4259-81B6-AF041158EB32}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{240521E8-8840-4259-81B6-AF041158EB32}.Debug|x64.Build.0 = Debug|Any CPU
+		{240521E8-8840-4259-81B6-AF041158EB32}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{240521E8-8840-4259-81B6-AF041158EB32}.Debug|x86.Build.0 = Debug|Any CPU
+		{240521E8-8840-4259-81B6-AF041158EB32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240521E8-8840-4259-81B6-AF041158EB32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{240521E8-8840-4259-81B6-AF041158EB32}.Release|x64.ActiveCfg = Release|Any CPU
+		{240521E8-8840-4259-81B6-AF041158EB32}.Release|x64.Build.0 = Release|Any CPU
+		{240521E8-8840-4259-81B6-AF041158EB32}.Release|x86.ActiveCfg = Release|Any CPU
+		{240521E8-8840-4259-81B6-AF041158EB32}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +81,7 @@ Global
 		{5B4F57F7-CC40-4BBC-ADA5-2F7F8D23E62A} = {A35B1487-BEE4-43FC-B59B-E2AFE1074ADF}
 		{246C383A-5F9B-40E5-AB7A-51DA12146208} = {4A0270C6-3262-4DC8-80C6-8218F3ED370F}
 		{F4D14FB4-66FB-4A50-BA4B-F297D6DC4499} = {4A0270C6-3262-4DC8-80C6-8218F3ED370F}
+		{240521E8-8840-4259-81B6-AF041158EB32} = {A35B1487-BEE4-43FC-B59B-E2AFE1074ADF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {69C5927F-2BF9-4244-8EF8-3399FC4C7ED7}
