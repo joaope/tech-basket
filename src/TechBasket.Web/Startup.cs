@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.DependencyInjection;
+using TechBasket.DomainService;
+using TechBasket.DomainService.Infrastructure;
 
 namespace TechBasket.Web
 {
@@ -9,7 +11,12 @@ namespace TechBasket.Web
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services
+                .AddSingleton<IProductRepository, InMemoryProductRepository>()
+                .AddSingleton<IOfferRepository, InMemoryOfferRepository>()
+                .AddSingleton<IProductService, ProductService>()
+                .AddSingleton<IBasketCalculatorService, BasketCalculatorService>()
+                .AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
