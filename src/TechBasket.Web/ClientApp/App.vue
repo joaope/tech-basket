@@ -1,7 +1,7 @@
 ﻿<template>
     <div id="app-container">
         <products-list v-bind:products="products" v-on:add-product-to-basket="addProductToBasket" />
-        <basket v-bind:basket="basket" v-on:remove-product-from-basket="removeProductFromBasket"/>
+        <basket v-bind:basket="basket" v-on:remove-product-from-basket="removeProductFromBasket" v-on:empty-basket="emptyBasket" />
     </div>
 </template>
 
@@ -25,7 +25,10 @@
             },
             removeProductFromBasket: function (i) {
                 this.basket.selectedProducts.splice(i, 1);
-            } 
+            },
+            emptyBasket: function () {
+                this.basket.selectedProducts = [];
+            }
         },
         mounted () {
             axios
