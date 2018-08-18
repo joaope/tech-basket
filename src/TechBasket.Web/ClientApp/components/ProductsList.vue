@@ -25,6 +25,8 @@
         list-style-type: none;
 
         li {
+            margin-bottom: 15px;
+
             span {
                 display: inline-block;
             }

@@ -31,6 +31,18 @@
             axios
                 .get('/api/products')
                 .then(response => this.products = response && response.data ? response.data : []);
+        },
+        watch: {
+            'basket.selectedProducts': function (oldBasket, newBasket) {
+
+                axios
+                    .post('/api/basket-total',
+                    {
+                        selectedProductsIdentifiers: this.basket.selectedProducts.map(function (p) { return p.identifier; })
+                    })
+                    .then(response => this.basket.total = response !== null && response.data ? response.data : 0);
+
+            }
         }
     };
 

@@ -27,9 +27,9 @@ namespace TechBasket.Web.Controllers
             return new GetProductsResponse(_productService.GetProducts());
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("basket-total")]
-        public decimal GetBasketTotal(GetBasketTotalRequest totalRequest)
+        public decimal GetBasketTotal([FromBody]GetBasketTotalRequest totalRequest)
         {
             var basket = new Basket(
                 totalRequest
