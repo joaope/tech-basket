@@ -9,7 +9,7 @@ namespace TechBasket.DomainService.UnitTests
 {
     public sealed class BasketCalculatorServiceTests
     {
-        private readonly BasketCalculatorService _calculatorService;
+        private readonly IBasketCalculatorService _calculatorService;
 
         public BasketCalculatorServiceTests()
         {

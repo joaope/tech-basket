@@ -4,7 +4,7 @@ using TechBasket.DomainService.Models;
 
 namespace TechBasket.DomainService
 {
-    public class BasketCalculatorService
+    public sealed class BasketCalculatorService : IBasketCalculatorService
     {
         private readonly IOfferRepository _offerRepository;
         private readonly IProductRepository _productRepository;

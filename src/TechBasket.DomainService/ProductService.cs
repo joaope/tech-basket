@@ -3,7 +3,7 @@ using TechBasket.DomainService.Models;
 
 namespace TechBasket.DomainService
 {
-    public sealed class ProductService
+    public sealed class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
 
