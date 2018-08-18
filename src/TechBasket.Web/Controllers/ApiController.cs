@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using TechBasket.DomainService;
+using TechBasket.DomainService.Models;
 using TechBasket.Web.Models;
 
 namespace TechBasket.Web.Controllers
@@ -8,10 +10,14 @@ namespace TechBasket.Web.Controllers
     public class ApiController : Controller
     {
         private readonly IProductService _productService;
+        private readonly IBasketCalculatorService _basketCalculatorService;
 
-        public ApiController(IProductService productService)
+        public ApiController(
+            IProductService productService,
+            IBasketCalculatorService basketCalculatorService)
         {
             _productService = productService;
+            _basketCalculatorService = basketCalculatorService;
         }
 
         [HttpGet]
@@ -19,6 +25,18 @@ namespace TechBasket.Web.Controllers
         public GetProductsResponse GetProducts()
         {
             return new GetProductsResponse(_productService.GetProducts());
+        }
+
+        [HttpGet]
+        [Route("basket-total")]
+        public decimal GetBasketTotal(GetBasketTotalRequest totalRequest)
+        {
+            var basket = new Basket(
+                totalRequest
+                .SelectedProductsIdentifiers
+                .Select(i => (ProductIdentifier)i));
+
+            return _basketCalculatorService.GetTotal(basket);
         }
     }
 }
