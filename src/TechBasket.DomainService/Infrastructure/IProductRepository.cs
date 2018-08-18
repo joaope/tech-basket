@@ -6,5 +6,7 @@ namespace TechBasket.DomainService.Infrastructure
     public interface IProductRepository
     {
         IDictionary<ProductIdentifier, decimal> GetProductsPrices();
+
+        Product[] GetProducts();
     }
 }

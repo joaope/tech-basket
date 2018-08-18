@@ -7,7 +7,7 @@ using Xunit;
 
 namespace TechBasket.DomainService.UnitTests
 {
-    public class BasketCalculatorServiceTests
+    public sealed class BasketCalculatorServiceTests
     {
         private readonly BasketCalculatorService _calculatorService;
 
