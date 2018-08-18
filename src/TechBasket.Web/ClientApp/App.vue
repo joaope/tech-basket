@@ -36,7 +36,7 @@
                 .then(response => this.products = response && response.data ? response.data : []);
         },
         watch: {
-            'basket.selectedProducts': function (oldBasket, newBasket) {
+            'basket.selectedProducts': function () {
 
                 axios
                     .post('/api/basket-total',
