@@ -5,7 +5,7 @@
 - [.NET Core SDK 2.1](https://www.microsoft.com/net/download) <small>(or higher)</small>
 - [Node.js 8.11.4](https://nodejs.org/) <small>(or higher)</small>
 
-## Install
+## How to run
 
 1. Restore node dependencies:
 ```console
