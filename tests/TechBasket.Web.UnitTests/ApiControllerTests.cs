@@ -32,10 +32,10 @@ namespace TechBasket.Web.UnitTests
 
             Assert.Equal(2, products.Count);
             Assert.Equal("Milk", products[0].Name);
-            Assert.Equal("Milk", products[0].Identifier);
+            Assert.Equal((int)ProductIdentifier.Milk, products[0].Identifier);
             Assert.Equal(12m, products[0].Price);
             Assert.Equal("Butter", products[1].Name);
-            Assert.Equal("Butter", products[1].Identifier);
+            Assert.Equal((int)ProductIdentifier.Butter, products[1].Identifier);
             Assert.Equal(0.5m, products[1].Price);
         }
 

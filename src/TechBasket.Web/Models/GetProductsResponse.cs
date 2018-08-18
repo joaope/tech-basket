@@ -19,11 +19,11 @@ namespace TechBasket.Web.Models
         {
             public string Name { get; }
 
-            public string Identifier { get; }
+            public int Identifier { get; }
 
             public decimal Price { get; }
 
-            public Product(string name, string identifier, decimal price)
+            public Product(string name, int identifier, decimal price)
             {
                 Name = name;
                 Identifier = identifier;
@@ -33,7 +33,7 @@ namespace TechBasket.Web.Models
             public Product(DomainService.Models.Product domainProduct)
             {
                 Name = domainProduct.Name;
-                Identifier = domainProduct.Identifier.ToString();
+                Identifier = (int)domainProduct.Identifier;
                 Price = domainProduct.Price;
             }
         }
